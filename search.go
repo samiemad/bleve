@@ -547,6 +547,12 @@ func (sr *SearchResult) String() string {
 			for _, t := range f.Terms.Terms() {
 				rv += fmt.Sprintf("\t%s(%d)\n", t.Term, t.Count)
 			}
+			for _, t := range f.NumericRanges {
+				rv += fmt.Sprintf("\t%s(%d)\n", t.Name, t.Count)
+			}
+			for _, t := range f.DateRanges {
+				rv += fmt.Sprintf("\t%s(%d)\n", t.Name, t.Count)
+			}
 			if f.Other != 0 {
 				rv += fmt.Sprintf("\tOther(%d)\n", f.Other)
 			}
